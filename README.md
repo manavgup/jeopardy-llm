@@ -69,4 +69,4 @@ python view_responses.py
 ```
 
 If all goes well, you should see a radar plot as follows:
-<img src="output/newplot.png" width="800" height="500">
+<img src="v2.0/output/newplot.png" width="800" height="500">
