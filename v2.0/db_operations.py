@@ -1,8 +1,8 @@
-from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, DateTime, text
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
-from utils import load_file
+import json
 
 Base = declarative_base()
 
@@ -55,6 +55,8 @@ class LLMJudgeRating(Base):
     question_structure = Column(Float)
     generated_tokens = Column(Integer)
     input_token_count = Column(Integer)
+    judge_model = Column(String)
+    judge_llm_response = Column(String)
 
 class TestRun(Base):
     __tablename__ = 'test_runs'
@@ -97,7 +99,7 @@ class JeopardyDB:
         return llm.id
     
     def insert_and_return_llms_from_file(self, file_path):
-        llms_data = load_file(file_path)
+        llms_data = self.load_file(file_path)
         llms = [LLM(name=llm['model'], provider=llm['provider']) for llm in llms_data]
         self.session.add_all(llms)
         self.session.commit()
@@ -132,8 +134,17 @@ class JeopardyDB:
         ) for q in questions])
         self.session.commit()
 
+    def load_file(model_file: str):
+        """Load JSONL from a file."""
+        lines = []
+        with open(model_file, "r") as model_file:
+            for line in model_file:
+                if line:
+                    lines.append(json.loads(line))
+        return lines
+
     def insert_questions_file(self, file_path):
-        questions_data = load_file(file_path)
+        questions_data = self.load_file(file_path)
         questions = [Question(
             category=q['category'],
             air_date=q['air_date'],
@@ -177,12 +188,93 @@ class JeopardyDB:
             raise ValueError("No test runs found in the database.")
         return last_test_run[0] 
 
+    # method to find llm responses that are not rated by the judge llm yet
+    def get_unrated_llm_responses(self, llm_id: int, test_run_id: int, judge_llm: str):
+        """
+        Get the LLM responses that are not yet rated in a specific test run by a specific LLM and judge.
+        
+        Args:
+            llm_id (int): The ID of the LLM.
+            test_run_id (int): The ID of the test run.
+            judge_llm (str): The name of the judge LLM.
+        
+        Returns:
+            List[LLMResponse]: A list of LLMResponse objects that are not yet rated by the given judge LLM.
+        """
+        # Get all the LLM responses for the given LLM and test run
+        llm_responses = self.get_llm_responses_by_llm_id_and_test_run_id(llm_id, test_run_id)
+        
+        # Get the IDs of the LLM responses that have already been rated by the given judge LLM
+        rated_response_ids = self.session.query(LLMJudgeRating.llm_response_id) \
+                            .join(LLMResponse, LLMResponse.id == LLMJudgeRating.llm_response_id) \
+                            .filter(LLMResponse.llm_id == llm_id, LLMJudgeRating.judge_model == judge_llm, LLMJudgeRating.test_run_id == test_run_id) \
+                            .distinct() \
+                            .all()
+        rated_response_ids = [row[0] for row in rated_response_ids]
+        
+        # Filter the LLM responses to get the ones that are not yet rated by the given judge LLM
+        unrated_responses = [resp for resp in llm_responses if resp.id not in rated_response_ids]
+        
+        return unrated_responses
 
+    def get_llm_responses_by_llm_id(self, llm_id):
+        return self.session.query(LLMResponse).filter_by(llm_id=llm_id).all()
+
+    def get_llm_judge_ratings(self) -> list[LLMJudgeRating]:
+        return self.session.query(LLMJudgeRating).all()
+
+    def get_llm_judge_models(self) -> list[LLMJudgeRating]:
+        return self.session.query(LLMJudgeRating.judge_model).distinct().all()
+    
+    def get_judge_ratings_for_llm_by_model(self, llm_id, judge_model):
+        # Fetch judge ratings for all responses of a specific LLM by a particular judge model
+        return self.session.query(LLMJudgeRating).join(LLMResponse, LLMResponse.id == LLMJudgeRating.llm_response_id) \
+            .filter(LLMResponse.llm_id == llm_id, LLMJudgeRating.judge_model == judge_model).all()
+
+    # get judged ratings based on llm_response_id from LLMJudgeRating and LLM
+    def get_llm_judge_ratings_by_response_and_llm(self, llm_response_id, llm_id):
+        return self.session.query(LLMJudgeRating).filter_by(llm_response_id=llm_response_id, llm_id=llm_id).all()
+    
+    def get_evaluation_data(self):
+        query = text("""
+            SELECT
+                llms.id,
+                llms.name,
+                questions.id,
+                questions.question,
+                questions.answer,
+                llm_responses.id AS llm_response_id,
+                llm_responses.response,
+                llm_responses.generated_tokens,
+                llm_responses.input_token_count,
+                llm_judge_ratings.accuracy,
+                llm_judge_ratings.coherence,
+                llm_judge_ratings.completion,
+                llm_judge_ratings.question_structure,
+                llm_judge_ratings.generated_tokens AS judge_generated_tokens,
+                llm_judge_ratings.input_token_count AS judge_input_token_count
+            FROM llms
+            JOIN llm_responses ON llms.id = llm_responses.llm_id
+            JOIN questions ON llm_responses.question_id = questions.id
+            JOIN llm_judge_ratings ON llm_responses.id = llm_judge_ratings.llm_response_id
+        """)
+        result = self.session.execute(query).fetchall()
+        return [dict(zip(
+            ['llm_id', 'llm_name', 'question_id', 'question', 'answer', 'llm_response_id', 'response', 'generated_tokens', 'input_token_count',
+            'accuracy', 'coherence', 'completion', 'question_structure', 'judge_generated_tokens', 'judge_input_token_count'],
+            row)) for row in result]
+
+    def get_judgement_by_llm_response_id(self, llm_response_id):
+        return self.session.query(LLMJudgeRating).filter_by(llm_response_id=llm_response_id).all()
+        
+    def get_llm_judge_ratings_by_response_and_judge(self, llm_response_id, judge_model):
+        return self.session.query(LLMJudgeRating).filter_by(llm_response_id=llm_response_id, judge_model=judge_model).all()
+
+    def get_llm_responses_by_llm_id_and_test_run_id(self, llm_id: int, test_run_id: int):
+        return self.session.query(LLMResponse).filter_by(llm_id=llm_id, test_run_id=test_run_id).all()
+    
     def get_llm_responses(self, test_run_id):
         return self.session.query(LLMResponse).filter_by(test_run_id=test_run_id).all()
-
-    def get_llm_judge_ratings(self, llm_response_id, test_run_id):
-        return self.session.query(LLMJudgeRating).filter_by(llm_response_id=llm_response_id, test_run_id=test_run_id).all()
 
     def close(self):
         self.session.close()

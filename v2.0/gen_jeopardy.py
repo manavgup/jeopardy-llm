@@ -4,6 +4,7 @@ import multiprocess
 from db_operations import JeopardyDB, Question, LLMResponse, LLMJudgeRating, TestRun, LLM
 from typing import Generator, Tuple, List, Iterator
 from prompts import PROMPTS
+import argparse
 
 from genai.client import Client
 from genai.credentials import Credentials
@@ -117,8 +118,37 @@ def main(models_file: str, questions_file: str, db_file: str):
 
     
 if __name__ == "__main__":
-    models_file = "data/models.jsonl"  # Path to the models configuration file
-    questions_file = "data/questions-test.jsonl"  # Path to the questions file
-    db_file = "outs/jeopardy.db"
+    parser = argparse.ArgumentParser(description="Generate answers for Jeopardy questions using LLMs.")
+    parser.add_argument(
+        "--models_file", type=str, 
+        default="data/models.jsonl", 
+        help="Path to the models configuration file.")
+    parser.add_argument(
+        "--questions_file", type=str,
+        default="data/questions-test.jsonl",
+        help="Path to the questions file."
+    )
+    parser.add_argument(
+        "--judge-model-id", 
+        type = int,
+        default = None,
+        help = "The ID of the judge model to use for generating judgements.")
+    parser.add_argument(
+        "--db_file", type=str,
+        default="outs/jeopardy.db",
+        help="Path to the database file."
+    )
+    parser.add_argument(
+        "--test-run-id", type=int,
+        default=None,
+        help="The ID of the test run to use for generating judgements."
+    )
+    args = parser.parse_args()
+    models_file = f"{args.models_file}"
+    questions_file=f"{args.questions_file}"
+    db_file=f"{args.db_file}"
+    #models_file = "data/models.jsonl"  # Path to the models configuration file
+    #questions_file = "data/questions-test.jsonl"  # Path to the questions file
+    #db_file = "outs/jeopardy.db"
     main(models_file, questions_file, db_file)
 
