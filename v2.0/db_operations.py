@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 import json
+import os
 
 Base = declarative_base()
 
@@ -72,7 +73,14 @@ class TestRun(Base):
 
 class JeopardyDB:
     def __init__(self, db_file='jeopardy.db'):
-        self.engine = create_engine(f'sqlite:///{db_file}')
+        # Get the script's directory
+        
+        db_path = self.get_path(db_file)
+        # Create the database file if it doesn't exist
+        if not os.path.exists(db_path):
+            open(db_path, 'a').close()
+
+        self.engine = create_engine(f'sqlite:///{db_path}')
         Session = sessionmaker(bind=self.engine, expire_on_commit=False)
         self.session = Session()
         self.create_tables()
@@ -82,6 +90,20 @@ class JeopardyDB:
     
     def __exit__(self, exc_type, exc_val, traceback):
         self.close()
+
+    def get_path(self, file_name):
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        # Split the db_file into directory and filename
+        db_dir, db_filename = os.path.split(file_name)
+        
+        # Construct the full path to the database directory and file
+        db_dir_path = os.path.join(script_dir, db_dir)
+        db_path = os.path.join(db_dir_path, db_filename)
+
+        os.makedirs(db_dir_path, exist_ok=True)
+
+        return db_path
 
     def create_tables(self):
         """
@@ -134,11 +156,12 @@ class JeopardyDB:
         ) for q in questions])
         self.session.commit()
 
-    def load_file(model_file: str):
+    def load_file(self, model_file: str):
         """Load JSONL from a file."""
         lines = []
-        with open(model_file, "r") as model_file:
-            for line in model_file:
+        db_path = self.get_path(model_file)
+        with open(db_path, "r") as file:
+            for line in file:
                 if line:
                     lines.append(json.loads(line))
         return lines

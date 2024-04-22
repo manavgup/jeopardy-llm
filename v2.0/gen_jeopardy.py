@@ -135,7 +135,7 @@ if __name__ == "__main__":
         help = "The ID of the judge model to use for generating judgements.")
     parser.add_argument(
         "--db_file", type=str,
-        default="outs/jeopardy.db",
+        default="output/jeopardy.db",
         help="Path to the database file."
     )
     parser.add_argument(
