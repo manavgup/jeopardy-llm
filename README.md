@@ -16,6 +16,8 @@ To automate the evaluation process, we prompt strong LLMs like GPT-4 to act as j
 ## Contents
 - [Install](#install)
 
+Copy env_template as .env and supply your credentials.
+
 
 ## Install
 ```
