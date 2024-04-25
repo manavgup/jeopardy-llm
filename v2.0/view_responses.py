@@ -6,7 +6,7 @@ import random
 from collections import defaultdict
 
 # Initialize database
-database_file = 'outs/jeopardy.db'
+database_file = 'output/jeopardy.db'
 db = JeopardyDB(db_file=database_file)
 
 def get_llm_options():

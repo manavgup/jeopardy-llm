@@ -34,18 +34,22 @@ class BaseJudge:
     def _evaluate(self, evaluation_type: str, llm_prompt: str, llm_response: str, max_tokens: int = 7, temperature: float = 0) -> float:
         if evaluation_type == "accuracy":
             user_prompt = PROMPTS[evaluation_type]["user"].format(llm_prompt, llm_response)
+        elif evaluation_type == "completeness":
+            user_prompt = PROMPTS[evaluation_type]["user"].format(llm_prompt, llm_response)
         else:
             user_prompt = PROMPTS[evaluation_type]["user"].format(llm_response)
         system_prompt = PROMPTS[evaluation_type]["system"]
         input_tokens, generated_tokens, response = self._make_api_call(user_prompt, system_prompt, max_tokens, temperature)
+        print(response)
         self.total_generated_tokens += generated_tokens
         self.total_input_tokens += input_tokens
 
         # convert response to float if it's a number
         try:
-            match = re.search(r"(?:\d+(?:\.\d*)?|\.\d+)", response)
-            if match:
-                return float(match.group())
+            if (type(response) != type(0.1)):
+                match = re.search(r"(?:\d+(?:\.\d*)?|\.\d+)", response)
+                if match:
+                        return float(match.group())
         except ValueError:
             return 0.0
     

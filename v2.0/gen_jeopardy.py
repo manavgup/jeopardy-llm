@@ -125,7 +125,7 @@ if __name__ == "__main__":
         help="Path to the models configuration file.")
     parser.add_argument(
         "--questions_file", type=str,
-        default="data/questions-test.jsonl",
+        default="data/questions.jsonl",
         help="Path to the questions file."
     )
     parser.add_argument(
@@ -147,8 +147,8 @@ if __name__ == "__main__":
     models_file = f"{args.models_file}"
     questions_file=f"{args.questions_file}"
     db_file=f"{args.db_file}"
-    #models_file = "data/models.jsonl"  # Path to the models configuration file
-    #questions_file = "data/questions-test.jsonl"  # Path to the questions file
-    #db_file = "outs/jeopardy.db"
+    models_file = "data/models.jsonl"  # Path to the models configuration file
+    questions_file = "data/questions.jsonl"  # Path to the questions file
+    db_file = "output/jeopardy.db"
     main(models_file, questions_file, db_file)
 

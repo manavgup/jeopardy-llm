@@ -226,7 +226,6 @@ class JeopardyDB:
         """
         # Get all the LLM responses for the given LLM and test run
         llm_responses = self.get_llm_responses_by_llm_id_and_test_run_id(llm_id, test_run_id)
-        
         # Get the IDs of the LLM responses that have already been rated by the given judge LLM
         rated_response_ids = self.session.query(LLMJudgeRating.llm_response_id) \
                             .join(LLMResponse, LLMResponse.id == LLMJudgeRating.llm_response_id) \

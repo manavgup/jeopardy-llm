@@ -24,6 +24,7 @@ class JudgeManager:
         """
         test_run_id = self.db.get_last_test_run_id()
         llm_responses = self.db.get_llm_responses(test_run_id)
+        print(llm_responses)
         return [(test_run_id, response.llm_id, response) for response in llm_responses]
 
     def judge_response(self, llm_response: LLMResponse) -> 'LLMJudgeRating':
@@ -54,7 +55,7 @@ def generate_judgements(db_file: str, judge_llm: str, llm_id: int, test_run_id: 
     # get llm responses from LLMResponse table where llm_id = llm_id
     if test_run_id is None:
         test_run_id = judge_manager.db.get_last_test_run_id()
-    
+    print
     llm_responses = judge_manager.db.get_unrated_llm_responses(llm_id, test_run_id, judge_llm)
     for llm_response in llm_responses:
         for judge in judge_manager.judges:
@@ -68,12 +69,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--db_file", 
         type=str, 
-        default="outs/jeopardy.db", 
+        default="output/jeopardy.db", 
         help="The database file to use.")
     parser.add_argument(
         "--judge_llm",
         type=str,
-        default=None,
+        default= None,
         help="Name of the judge LLM (e.g.,'claude-3-opus-20240229', 'gpt-4')"
     )
     parser.add_argument(
@@ -84,10 +85,10 @@ if __name__ == "__main__":
     parser.add_argument(
         "--llm_id",
         type=int,
-        default=None,
+        default=3,
         help="The LLM ID to use."
     )
     args = parser.parse_args()
     generate_judgements(args.db_file, args.judge_llm, args.llm_id, args.test_run_id)
     
-    # judge_manager.run()
+    # JudgeManager.run()

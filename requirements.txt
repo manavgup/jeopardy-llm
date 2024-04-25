@@ -17,6 +17,7 @@ google-auth==2.29.0
 google-auth-httplib2==0.2.0
 google-generativeai==0.5.2
 googleapis-common-protos==1.63.0
+gradio
 grpcio==1.62.2
 grpcio-status==1.62.2
 h11==0.14.0
@@ -28,7 +29,9 @@ huggingface-hub==0.22.2
 ibm-generative-ai==2.3.0
 idna==3.7
 multiprocess==0.70.16
+openai
 packaging==24.0
+plotly
 proto-plus==1.23.0
 protobuf==4.25.3
 pyasn1==0.6.0
