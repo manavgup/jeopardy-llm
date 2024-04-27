@@ -1,6 +1,6 @@
 import gradio as gr
 from db_operations import JeopardyDB  
-from gen_judgement import generate_judgements
+from judge_manager import JudgeManager
 import plotly.graph_objs as go
 import random
 from collections import defaultdict
@@ -71,7 +71,7 @@ def display_judge_ratings(selected_llm_id, selected_judge):
 
 def generate_judgement(selected_llm_id: int, judge_llm: str):
     # Call the generate_judgement function
-    result = generate_judgements(database_file, judge_llm, selected_llm_id)
+    manager.generate_judgements(database_file, judge_llm, selected_llm_id)
 
     # Update the LLM dropdown, Judge dropdown, and Judge ratings
     llm_responses.value = display_llm_responses(selected_llm_id)
@@ -130,6 +130,7 @@ def plot_spider_chart():
     return fig
 
 with gr.Blocks() as interface:
+    manager = JudgeManager(database_file)
     llm_dropdown = gr.Dropdown(label="Select LLM", choices=get_llm_options())
     judge_dropdown = gr.Dropdown(label="Select Judge", choices=get_judge_options())
     gen_judgement_button = gr.Button(value="Generate Judgement")

@@ -1,6 +1,7 @@
 import os
 import anthropic
 from dotenv import load_dotenv
+from typing import Dict
 
 load_dotenv()
 
@@ -12,7 +13,7 @@ class AnthropicClaude:
         # Initialize the Anthropic AI client
         self.client = anthropic.Anthropic(api_key=self.ANTHROPIC_API_KEY)
 
-    def generate_answer(self, prompt: str, model_name: str):
+    def generate_answer(self, prompt : str, model_name : str) -> Dict[str, str | int]:
         """
         Send a question to the Claude model and return the response.
 
@@ -29,10 +30,10 @@ class AnthropicClaude:
                 - "input_token_count": The number of tokens in the input prompt.
         """
         # Define the instruction for the Claude model
-        instruction = {
-            "role": "assistant",
-            "content": "You are Claude, an AI assistant created by Anthropic. Please provide a helpful response to the user's query."
-        }
+        #instruction = {
+        #    "role": "assistant",
+        #    "content": "You are Claude, an AI assistant created by Anthropic. Please provide a helpful response to the user's query."
+        #}
 
         # Format the prompt as expected by the API
         formatted_prompt = f"\n\nHuman: {prompt}"
@@ -60,5 +61,5 @@ class AnthropicClaude:
 if __name__ == "__main__":
     prompt = "Who killed Jessica Rabbit?"
     claude = AnthropicClaude()
-    generated_text = claude.generate_answer(prompt, 'anthropic', "claude-3-opus-20240229")
+    generated_text = claude.generate_answer(prompt, "claude-3-opus-20240229")
     print(generated_text)
