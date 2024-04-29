@@ -108,6 +108,7 @@ def main(models_file: str, questions_file: str, db_file: str):
     """
     # Load LLM information from the models file and insert them into the database
     with JeopardyDB(db_file) as db:
+        db.clear_data()
         llms = db.insert_and_return_llms_from_file(models_file)
         # Load the questions from the file and insert them into the database
         db.insert_questions_file(questions_file)
@@ -140,7 +141,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--test-run-id", type=int,
-        default=None,
+        default=1,
         help="The ID of the test run to use for generating judgements."
     )
     args = parser.parse_args()
@@ -150,5 +151,6 @@ if __name__ == "__main__":
     models_file = "data/models.jsonl"  # Path to the models configuration file
     questions_file = "data/questions.jsonl"  # Path to the questions file
     db_file = "output/jeopardy.db"
+    
     main(models_file, questions_file, db_file)
 

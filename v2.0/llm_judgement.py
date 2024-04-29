@@ -40,7 +40,6 @@ class BaseJudge:
             user_prompt = PROMPTS[evaluation_type]["user"].format(llm_response)
         system_prompt = PROMPTS[evaluation_type]["system"]
         input_tokens, generated_tokens, response = self._make_api_call(user_prompt, system_prompt, max_tokens, temperature)
-        print(response)
         self.total_generated_tokens += generated_tokens
         self.total_input_tokens += input_tokens
 

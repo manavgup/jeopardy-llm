@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, DateTime, text
+from sqlalchemy.sql import text
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 import json
 import os
+
 
 Base = declarative_base()
 
@@ -297,6 +299,15 @@ class JeopardyDB:
     
     def get_llm_responses(self, test_run_id):
         return self.session.query(LLMResponse).filter_by(test_run_id=test_run_id).all()
+    
+    def clear_data(self):
+        """Delete all data from the tables to reset the database."""
+        self.session.execute(text('''DELETE FROM llm_judge_ratings;'''))
+        self.session.execute(text('''DELETE FROM llm_responses;'''))
+        self.session.execute(text('''DELETE FROM questions;'''))
+        self.session.execute(text('''DELETE FROM llms;'''))
+        self.session.execute(text('''DELETE FROM test_runs;'''))
+        self.session.commit()
 
     def close(self):
         self.session.close()

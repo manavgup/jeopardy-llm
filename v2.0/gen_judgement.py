@@ -55,7 +55,6 @@ def generate_judgements(db_file: str, judge_llm: str, llm_id: int, test_run_id: 
     # get llm responses from LLMResponse table where llm_id = llm_id
     if test_run_id is None:
         test_run_id = judge_manager.db.get_last_test_run_id()
-    print
     llm_responses = judge_manager.db.get_unrated_llm_responses(llm_id, test_run_id, judge_llm)
     for llm_response in llm_responses:
         for judge in judge_manager.judges:
