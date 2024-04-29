@@ -8,15 +8,15 @@ from prompts import PROMPTS
 from db_operations import LLMJudgeRating, LLMResponse
 
 class BaseJudge:
-    def __init__(self):
+    def __init__(self) -> None:
         load_dotenv()
         self.name = "BaseJudge"
         self.total_generated_tokens = 0
         self.total_input_tokens = 0
 
-    def judge_response(self, llmresponse: LLMResponse, test_run_id: int) -> LLMJudgeRating:
+    def judge_response(self, llmresponse: LLMResponse, test_id: int) -> LLMJudgeRating:
         ratings = {}
-        for evaluation_type in ["is_question", "accuracy", "coherence", "completeness"]:
+        for evaluation_type in ["completeness", "accuracy", "coherence", "is_question"]:
             ratings[evaluation_type] = self._evaluate(evaluation_type, llmresponse.prompt, llmresponse.response)
 
         return LLMJudgeRating(
@@ -27,7 +27,7 @@ class BaseJudge:
             generated_tokens=self.total_generated_tokens,
             input_token_count=self.total_input_tokens,
             llm_response_id=llmresponse.id,
-            test_run_id=test_run_id,
+            test_run_id=test_id,
             judge_model=self.name
         )
 
@@ -35,7 +35,7 @@ class BaseJudge:
         if evaluation_type == "accuracy":
             user_prompt = PROMPTS[evaluation_type]["user"].format(llm_prompt, llm_response)
         elif evaluation_type == "completeness":
-            user_prompt = PROMPTS[evaluation_type]["user"].format(llm_prompt, llm_response)
+            user_prompt = PROMPTS[evaluation_type]["user"].format(llm_response, llm_prompt)
         else:
             user_prompt = PROMPTS[evaluation_type]["user"].format(llm_response)
         system_prompt = PROMPTS[evaluation_type]["system"]
@@ -51,6 +51,7 @@ class BaseJudge:
                         return float(match.group())
         except ValueError:
             return 0.0
+        return 0.0
     
     def _make_api_call(self, prompt: str, system_prompt: str, max_tokens: int, temperature: float) -> Tuple[int, int, Any]:
         raise NotImplementedError("_make_api_call method must be implemented in the subclass")
@@ -91,7 +92,7 @@ class GPT4Judge(BaseJudge):
         self.OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
         self.openAI = OpenAI(api_key=self.OPENAI_API_KEY)
 
-    def _make_api_call(self, prompt: str, system_prompt: str, max_tokens: int, temperature: float) -> Any:
+    def _make_api_call(self, prompt: str, system_prompt: str, max_tokens: int, temperature: float) -> Tuple[int, int, Any]:
         try:
             completion = self.openAI.chat.completions.create(
                 model=self.name,
@@ -105,7 +106,7 @@ class GPT4Judge(BaseJudge):
             return (
                 completion.usage.prompt_tokens,
                 completion.usage.completion_tokens,
-                float(completion.choices[0].message.content)
+                completion.choices[0].message.content
             )
         except Exception as e:
             print(f"Error making API call: {e}")

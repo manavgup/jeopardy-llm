@@ -1,77 +1,88 @@
-from sqlalchemy import create_engine, Column, Integer, String, Float, ForeignKey, DateTime, text
-from sqlalchemy.sql import text
-from sqlalchemy.orm import sessionmaker, relationship
-from sqlalchemy.ext.declarative import declarative_base
+from __future__ import annotations
+
+from sqlalchemy import create_engine, Integer, String, Float, ForeignKey, DateTime, text
+from sqlalchemy.orm import sessionmaker, relationship, DeclarativeBase
+from sqlalchemy.orm import Mapped, mapped_column
 from datetime import datetime
 import json
 import os
+from typing import List, Optional
 
+#Base : Type[DeclarativeMeta]= declarative_base()
 
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 class LLM(Base):
     __tablename__ = 'llms'
 
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    provider = Column(String)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(String)
+    provider: Mapped[str] = mapped_column(String)
 
-    llm_responses = relationship("LLMResponse", backref="llm")
+    llm_responses: Mapped[List[LLMResponse]] = relationship(back_populates="llm")
 
 class Question(Base):
     __tablename__ = 'questions'
 
-    id = Column(Integer, primary_key=True)
-    category = Column(String)
-    air_date = Column(String)
-    question = Column(String)
-    value = Column(String)
-    answer = Column(String)
-    round = Column(String)
-    show_number = Column(String)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    category: Mapped[str] = mapped_column(String)
+    air_date: Mapped[str] = mapped_column(String)
+    question: Mapped[str] = mapped_column(String)
+    value: Mapped[str] = mapped_column(String)
+    answer: Mapped[str] = mapped_column(String)
+    round: Mapped[str] = mapped_column(String)
+    show_number: Mapped[str] = mapped_column(String)
 
-    llm_responses = relationship("LLMResponse", backref="question")
+    llm_responses: Mapped[List[LLMResponse]] = relationship(back_populates="question")
 
 class LLMResponse(Base):
     __tablename__ = 'llm_responses'
 
-    id = Column(Integer, primary_key=True)
-    question_id = Column(Integer, ForeignKey('questions.id'))
-    llm_id = Column(Integer, ForeignKey('llms.id'))
-    test_run_id = Column(Integer, ForeignKey('test_runs.id'))
-    prompt = Column(String)
-    response = Column(String)
-    generated_tokens = Column(Integer)
-    input_token_count = Column(Integer)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    question_id: Mapped[Optional[int]] = mapped_column(ForeignKey('questions.id'))
+    llm_id: Mapped[Optional[int]] = mapped_column(ForeignKey('llms.id'))
+    test_run_id: Mapped[Optional[int]] = mapped_column(ForeignKey('test_runs.id'))
+    prompt: Mapped[str] = mapped_column(String)
+    response: Mapped[str] = mapped_column(String)
+    generated_tokens: Mapped[int] = mapped_column(Integer)
+    input_token_count: Mapped[int] = mapped_column(Integer)
 
-    llm_judge_ratings = relationship("LLMJudgeRating", backref="llm_response")
-
+    llm: Mapped[LLM] = relationship(back_populates="llm_responses")
+    question: Mapped[Question] = relationship(back_populates="llm_responses")
+    test_run: Mapped[TestRun] = relationship(back_populates="llm_responses")
+    llm_judge_ratings: Mapped[List[LLMJudgeRating]] = relationship(back_populates="llm_response")
+    
 class LLMJudgeRating(Base):
     __tablename__ = 'llm_judge_ratings'
 
-    id = Column(Integer, primary_key=True)
-    llm_response_id = Column(Integer, ForeignKey('llm_responses.id'))
-    test_run_id = Column(Integer, ForeignKey('test_runs.id'))
-    accuracy = Column(Float)
-    coherence = Column(Float)
-    completion = Column(Float)
-    question_structure = Column(Float)
-    generated_tokens = Column(Integer)
-    input_token_count = Column(Integer)
-    judge_model = Column(String)
-    judge_llm_response = Column(String)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    llm_response_id: Mapped[Optional[int]] = mapped_column(ForeignKey('llm_responses.id'))
+    test_run_id: Mapped[Optional[int]] = mapped_column(ForeignKey('test_runs.id'))
+    accuracy: Mapped[float] = mapped_column(Float)
+    coherence: Mapped[float] = mapped_column(Float)
+    completion: Mapped[float] = mapped_column(Float)
+    question_structure: Mapped[float] = mapped_column(Float)
+    generated_tokens: Mapped[int] = mapped_column(Integer)
+    input_token_count: Mapped[int] = mapped_column(Integer)
+    judge_model: Mapped[str] = mapped_column(String)
+    judge_llm_response: Mapped[str] = mapped_column(String)
+
+    llm_response: Mapped[LLMResponse] = relationship(back_populates="llm_judge_ratings")
+    test_run: Mapped[TestRun] = relationship(back_populates="llm_judge_ratings")
 
 class TestRun(Base):
     __tablename__ = 'test_runs'
 
-    id = Column(Integer, primary_key=True)
-    user_prompt = Column(String)
-    system_prompt = Column(String)
-    parameters = Column(String)
-    run_time = Column(DateTime, default=datetime.now)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    user_prompt: Mapped[str] = mapped_column(String)
+    system_prompt: Mapped[str] = mapped_column(String)
+    parameters: Mapped[str] = mapped_column(String)
+    run_time: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
 
-    llm_responses = relationship("LLMResponse", backref="test_run")
-    llm_judge_ratings = relationship("LLMJudgeRating", backref="test_run")    
+    llm_responses: Mapped[List[LLMResponse]] = relationship(back_populates="test_run")
+    llm_judge_ratings: Mapped[List[LLMJudgeRating]] = relationship(back_populates="test_run")
+     
 
 class JeopardyDB:
     def __init__(self, db_file='jeopardy.db'):
@@ -194,7 +205,7 @@ class JeopardyDB:
     def get_questions(self):
         return self.session.query(Question).all()
 
-    def insert_test_run(self, user_prompt: str, system_prompt: str, parameters: str = None):
+    def insert_test_run(self, user_prompt: str, system_prompt: str, parameters: Optional[str] = None):
         test_run = TestRun(
             user_prompt=user_prompt,
             system_prompt=system_prompt,

@@ -1,8 +1,8 @@
 from llmproviders import LLMProvider
 import json
 import multiprocess
-from db_operations import JeopardyDB, Question, LLMResponse, LLMJudgeRating, TestRun, LLM
-from typing import Generator, Tuple, List, Iterator
+from db_operations import JeopardyDB, Question, LLMResponse, LLM
+from typing import Generator, Tuple, List
 from prompts import PROMPTS
 import argparse
 

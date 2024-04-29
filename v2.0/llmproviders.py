@@ -1,13 +1,14 @@
-import json
-import anthropic_genai, google_genai, watsonx_genai
-from typing import List, Dict, Any, Union
+import anthropic_genai
+import google_genai
+import watsonx_genai
+from typing import Dict, Union
 
 class LLMProvider:
     def __init__(self, llm: str):
-        self.providers: Dict[str] = {}
+        self.providers: Dict[str, Union["LLMProvider", None]] = {}
         self.providers[llm.lower()] = self._initialize_provider(llm.lower())
 
-    def _initialize_provider(self, llm: str) -> 'LLMProvider':
+    def _initialize_provider(self, llm: str) -> Union["LLMProvider", None] :
         provider_name = llm.lower()
         if provider_name == "anthropic":
             return anthropic_genai.AnthropicClaude()
@@ -16,16 +17,20 @@ class LLMProvider:
         elif provider_name == "ibm":
             return watsonx_genai.WatsonxGenerativeAI()
         else:
-            raise ValueError(f"Unsupported provider: {llm['provider']}")
+            raise ValueError(f"Unsupported provider: {llm}")
 
-    def get_provider(self, provider_name: str) -> 'LLMProvider':
+    def get_provider(self, provider_name: str) -> Union["LLMProvider", None] :
         provider = self.providers[provider_name.lower()]
         if not provider:
             raise ValueError(f"Invalid provider: {provider_name}")
         return provider
 
     def generate_answer(self, prompt: str, provider_name: str, model: str) -> str:
-        return self.get_provider(provider_name).generate_answer(prompt, model)
+        provider = self.get_provider(provider_name)
+        if provider :
+            return provider.generate_answer(prompt, model)
+        raise ValueError(f"Invalid provider: {provider_name}")
+        
     
 if __name__ == "__main__":
 # Example usage
