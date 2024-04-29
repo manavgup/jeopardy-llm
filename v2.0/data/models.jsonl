@@ -4,3 +4,4 @@
 {"model":"tiiuae/falcon-40b", "provider": "IBM"}
 {"model":"google/flan-t5-xl", "provider": "IBM"}
 {"model":"ibm/granite-13b-instruct-v2", "provider": "IBM"}
+{"model":"meta-llama/llama-3-70b-instruct", "provider": "IBM"}
