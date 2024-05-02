@@ -15,7 +15,8 @@ class Judge(ABC):
     total_input_tokens: int = 0
     
     def __post_init__(self):
-        self.api_key = os.environ.get(self.env_key)
+        if self.env_key:
+            self.api_key = os.environ.get(self.env_key)
 
     def judge_llmresponse(self, llmresponse: LLMResponse, test_id: Optional[int] = None) -> LLMJudgeRating:
         ratings = {}

@@ -5,14 +5,14 @@ import os
 
 
 from judges.judge import Judge
-load_dotenv()
+import os
 
 class GPT4Judge(Judge):
-    def __init__(self, env_key: str=os.getenv('OPENAI_API_KEY')):
-        super().__init__(name="gpt-4", env_key=env_key)
-        env_key = os.getenv('OPENAI_API_KEY')
-        print(env_key)
-        self.openAI = OpenAI(api_key=self.env_key)
+    def __init__(self, env_key_project: str="OPENAI_PROJECT_ID", env_key_org: str="OPENAI_ORG_ID"):
+        super().__init__(name="gpt-4", env_key="")
+        self.project_key = os.environ.get(env_key_project)
+        self.org_id = os.environ.get(env_key_org)
+        self.openAI = OpenAI(organization=self.org_id, project=self.project_key)
 
     def _make_api_call(self, prompt: str, system_prompt: str, max_tokens: int, temperature: float) -> Tuple[int, int, str]:
         try:

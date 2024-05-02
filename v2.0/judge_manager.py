@@ -15,11 +15,12 @@ class JudgeManager:
 
     def _initialize_judges(self, judge_llm: str) -> List[Judge]:
         if not judge_llm:
-            return [AnthropicClaudeJudge(env_key="ANTHROPIC_API_KEY"), GPT4Judge(env_key="OPENAI_API_KEY")]
+            return [AnthropicClaudeJudge(env_key="ANTHROPIC_API_KEY"), 
+                    GPT4Judge(env_key_project="OPENAI_PROJECT_ID", env_key_org="OPENAI_ORG_ID")]
         elif judge_llm.startswith("claude"):
             return [AnthropicClaudeJudge(env_key="ANTHROPIC_API_KEY")]
         elif judge_llm.startswith("gpt-4"):
-            return [GPT4Judge(env_key="OPENAI_API_KEY")]
+            return [GPT4Judge(env_key_project="OPENAI_PROJECT_ID", env_key_org="OPENAI_ORG_ID")]
         else:
             raise ValueError(f"Invalid judge_llm: {judge_llm}")
 
