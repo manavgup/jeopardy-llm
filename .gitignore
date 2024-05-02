@@ -1,3 +1,4 @@
 .env
 venv/
 v2.0/__pycache__/
+openai_test.py
