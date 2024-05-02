@@ -11,7 +11,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--judge_llm",
         type=str,
-        default= None,
+        default= 'gpt-4',
         help="Name of the judge LLM (e.g.,'claude-3-opus-20240229', 'gpt-4')"
     )
     parser.add_argument(

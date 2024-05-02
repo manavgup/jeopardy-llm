@@ -1,11 +1,17 @@
 from typing import Tuple
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
 
 from judges.judge import Judge
+load_dotenv()
 
 class GPT4Judge(Judge):
-    def __init__(self, env_key: str="OPENAI_API_KEY"):
+    def __init__(self, env_key: str=os.getenv('OPENAI_API_KEY')):
         super().__init__(name="gpt-4", env_key=env_key)
+        env_key = os.getenv('OPENAI_API_KEY')
+        print(env_key)
         self.openAI = OpenAI(api_key=self.env_key)
 
     def _make_api_call(self, prompt: str, system_prompt: str, max_tokens: int, temperature: float) -> Tuple[int, int, str]:

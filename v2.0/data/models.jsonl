@@ -1,5 +1,5 @@
 {"model":"meta-llama/llama-2-70b", "provider": "IBM"}
-{"model":"mistralai/mixtral-8x7b-instruct-v0-1", "provider": "IBM"}
+{"model":"mistralai/mixtral-8x7b-instruct-v01", "provider": "IBM"}
 {"model":"tiiuae/falcon-180b", "provider": "IBM"}
 {"model":"tiiuae/falcon-40b", "provider": "IBM"}
 {"model":"google/flan-t5-xl", "provider": "IBM"}
