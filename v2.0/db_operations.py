@@ -22,6 +22,13 @@ class LLM(Base):
 
     llm_responses: Mapped[List[LLMResponse]] = relationship(back_populates="llm")
 
+class LLM_Judge(Base):
+    __tablename__ = 'Judge LLMs'
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    name: Mapped[str] = mapped_column(String)
+    provider: Mapped[str] = mapped_column(String)
+
 class Question(Base):
     __tablename__ = 'questions'
 
@@ -124,6 +131,15 @@ class JeopardyDB:
         """
         Base.metadata.create_all(self.engine)
 
+    def insert_judge_llm(self, name, provider):
+        judge_llm = LLM_Judge(
+            name=name,
+            provider=provider
+        )
+        self.session.add(judge_llm)
+        self.session.commit()
+        return judge_llm.id
+
     def insert_llm(self, name, provider):
         llm = LLM(
             name=name,
@@ -132,6 +148,13 @@ class JeopardyDB:
         self.session.add(llm)
         self.session.commit()
         return llm.id
+    
+    def insert_and_return_judge_llms_from_file(self, file_path):
+        judge_llms_data = self.load_file(file_path)
+        judge_llms = [LLM_Judge(name=llm['model'], provider=llm['provider']) for llm in judge_llms_data]
+        self.session.add_all(judge_llms)
+        self.session.commit()
+        return judge_llms
     
     def insert_and_return_llms_from_file(self, file_path):
         llms_data = self.load_file(file_path)
@@ -142,6 +165,9 @@ class JeopardyDB:
 
     def get_all_llms(self):
         return self.session.query(LLM).all()
+    
+    def get_all_judge_llms(self):
+        return self.session.query(LLM_Judge).all()
 
     def insert_question(self, data):
         question = Question(
