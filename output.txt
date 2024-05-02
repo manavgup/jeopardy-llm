@@ -1,0 +1,1122 @@
+
+=============================== List all models ================================
+
+{'id': 'granite-13b-instruct-v2-pt-uLzPpNm0-2024-03-06-17-14-17', 'name': 'Tune #1 granite-13b-instruct-v2 (13B)'}
+{'id': 'sentence-transformers/all-minilm-l6-v2', 'name': 'all-minilm-l6-v2'}
+{'id': 'baai/bge-large-en-v1.5', 'name': 'bge-large-en-v1.5'}
+{'id': 'codellama/codellama-34b-instruct', 'name': 'codellama-34b-instruct'}
+{'id': 'deepseek-ai/deepseek-coder-33b-instruct', 'name': 'deepseek-coder-33b-instruct'}
+{'id': 'tiiuae/falcon-180b', 'name': 'falcon-180b'}
+{'id': 'tiiuae/falcon-40b', 'name': 'falcon-40b'}
+{'id': 'ibm/falcon-40b-8lang-instruct', 'name': 'falcon-40b-8lang-instruct'}
+{'id': 'google/flan-t5-xl', 'name': 'flan-t5-xl'}
+{'id': 'google/flan-t5-xxl', 'name': 'flan-t5-xxl'}
+{'id': 'google/flan-ul2', 'name': 'flan-ul2'}
+{'id': 'ibm/granite-13b-base-v2', 'name': 'granite-13b-base-v2'}
+{'id': 'ibm/granite-13b-chat-v2', 'name': 'granite-13b-chat-v2'}
+{'id': 'ibm/granite-13b-instruct-v2', 'name': 'granite-13b-instruct-v2'}
+{'id': 'ibm/granite-13b-lab-incubation', 'name': 'granite-13b-lab-incubation'}
+{'id': 'ibm/granite-20b-code-instruct-v1', 'name': 'granite-20b-code-instruct-v1'}
+{'id': 'ibm/granite-20b-code-instruct-v1-gptq', 'name': 'granite-20b-code-instruct-v1-gptq'}
+{'id': 'ibm/granite-20b-code-javaenterprise', 'name': 'granite-20b-code-javaenterprise'}
+{'id': 'ibm/granite-20b-multilang-lab-rc', 'name': 'granite-20b-multilang-lab-rc'}
+{'id': 'ibm/granite-20b-multilingual', 'name': 'granite-20b-multilingual'}
+{'id': 'ibm/granite-3b-code-plus-v1', 'name': 'granite-3b-code-plus-v1'}
+{'id': 'ibm/granite-8b-japanese', 'name': 'granite-8b-japanese'}
+{'id': 'ibm/granite-8b-japanese-lab-rc', 'name': 'granite-8b-japanese-lab-rc'}
+{'id': 'meta-llama/llama-2-13b', 'name': 'llama-2-13b'}
+{'id': 'meta-llama/llama-2-13b-chat', 'name': 'llama-2-13b-chat'}
+{'id': 'meta-llama/llama-2-70b', 'name': 'llama-2-70b'}
+{'id': 'meta-llama/llama-2-70b-chat', 'name': 'llama-2-70b-chat'}
+{'id': 'ibm-meta/llama-2-70b-chat-q', 'name': 'llama-2-70b-chat-q'}
+{'id': 'meta-llama/llama-2-7b-chat', 'name': 'llama-2-7b-chat'}
+{'id': 'meta-llama/llama-3-70b-instruct', 'name': 'llama-3-70b-instruct'}
+{'id': 'meta-llama/llama-3-8b', 'name': 'llama-3-8b'}
+{'id': 'meta-llama/llama-3-8b-instruct', 'name': 'llama-3-8b-instruct'}
+{'id': 'ibm-mistralai/merlinite-7b', 'name': 'merlinite-7b'}
+{'id': 'mistralai/mistral-7b-instruct-v0-2', 'name': 'mistral-7b-instruct-v0-2'}
+{'id': 'mistralai/mixtral-8x7b-instruct-v01', 'name': 'mixtral-8x7b-instruct-v01'}
+{'id': 'ibm-mistralai/mixtral-8x7b-instruct-v01-q', 'name': 'mixtral-8x7b-instruct-v01-q'}
+{'id': 'intfloat/multilingual-e5-large', 'name': 'multilingual-e5-large'}
+{'id': 'sarvamai/openhathi-7b-hi-v0-1-base', 'name': 'openhathi-7b-hi-v0-1-base'}
+{'id': 'kaist-ai/prometheus-13b-v1', 'name': 'prometheus-13b-v1'}
+{'id': 'ibm/slate.125m.english.rtrvr', 'name': 'slate.125m.english.rtrvr'}
+{'id': 'ibm/slate.30m.english.rtrvr', 'name': 'slate.30m.english.rtrvr'}
+{'id': 'ibm/slate.30m.english.rtrvr.02.28.2024', 'name': 'slate.30m.english.rtrvr.02.28.2024'}
+{'id': 'ibm/tinytimemixer-monash-fl_96', 'name': 'tinytimemixer-monash-fl_96'}
+
+=============================== Get model detail ===============================
+
+{'description': 'granite-13b-instruct-v2 is a general-purpose decoder-only '
+                'model that should support most English NLP tasks. It is an '
+                'instruction-tuned variant initialized from the pre-trained '
+                'granoie-13b-v2 base model, which was on trained 2.5T Tokens '
+                'from the IBM Data Pile.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, Classification, '
+                'Generation, Extraction\n'
+                '- Type: Decoder-only\n'
+                '- Model Card: '
+                '[granite-13b-instruct-v2](https://github.ibm.com/ai-models/granite-gtm/blob/main/model-cards/granite-13b-instruct-v2.md)\n'
+                '- Prompt templating:\n'
+                '    - System prompt: no special prompt is required for the '
+                'model.\n'
+                '    - Model-specific format: No special format required for '
+                'this model, this model benefited from flan-templated data in '
+                'its alignment step and therefore should perform well with '
+                'flan-style prompt templates.',
+ 'id': 'granite-13b-instruct-v2-pt-uLzPpNm0-2024-03-06-17-14-17',
+ 'name': 'Tune #1 granite-13b-instruct-v2 (13B)',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is a sentence-transformers model: It maps sentences & '
+                'paragraphs to a 384 dimensional dense vector space and can be '
+                'used for tasks like clustering or semantic search.\n'
+                '\n'
+                '- Tasks: Information retrieval, clustering, sentence '
+                'similarity tasks\n'
+                '- Number of dimensions: 384\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2)',
+ 'developer': 'sentence-transformers',
+ 'id': 'sentence-transformers/all-minilm-l6-v2',
+ 'name': 'all-minilm-l6-v2',
+ 'size': '10M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is a sentence-transformers that focuses on Dense '
+                'Retrieval and Retrieval-augmented LLMs ( '
+                'https://github.com/FlagOpen/FlagEmbedding)\n'
+                '\n'
+                '- Tasks: Information retrieval, clustering, sentence '
+                'similarity tasks  \n'
+                '- Max sequence length: 512\n'
+                '- Number of dimensions: 1024\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/BAAI/bge-large-en-v1.5)',
+ 'developer': 'sentence-transformers',
+ 'id': 'baai/bge-large-en-v1.5',
+ 'name': 'bge-large-en-v1.5',
+ 'size': '335M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'codellama-34b-instruct is an instruction-tuned variant of '
+                'Code Llama, built on top of Llama 2 and designed for general '
+                'code synthesis and understanding.\n'
+                '\n'
+                '- Tasks: Code\n'
+                '- Type: Decoder-only\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- Repository: '
+                '[facebookresearch/codellama](https://github.com/facebookresearch/codellama)\n'
+                '- Paper: [Code Llama: Open Foundation Models for '
+                'Code](https://ai.meta.com/research/publications/code-llama-open-foundation-models-for-code/)\n'
+                '- More Information: [from '
+                'Meta](https://ai.meta.com/blog/code-llama-large-language-model-coding/)',
+ 'developer': 'Meta',
+ 'id': 'codellama/codellama-34b-instruct',
+ 'name': 'codellama-34b-instruct',
+ 'size': '34B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This 33B parameter model originates from '
+                'deepseek-coder-33b-base and is fine-tuned on 2B tokens of '
+                'instruction data, 87% code and 13% natural language. It is '
+                'trained on 86 code languages.\n'
+                ' \n'
+                '- Repository: '
+                '[deepseek-ai/deepseek-coder](https://github.com/deepseek-ai/deepseek-coder)\n'
+                '- Paper: [DeepSeek-Coder: When the Large Language Model Meets '
+                'Programming - The Rise of Code '
+                'Intelligence](https://arxiv.org/pdf/2401.14196.pdf)\n'
+                '- GitHub resource on performance: [DeepSeek Coder:\n'
+                'Let the Code Write Itself](https://deepseekcoder.github.io)\n'
+                '- More information: [from '
+                'Huggingface](https://huggingface.co/deepseek-ai/deepseek-coder-33b-instruct)',
+ 'developer': 'DeepSeek',
+ 'id': 'deepseek-ai/deepseek-coder-33b-instruct',
+ 'name': 'deepseek-coder-33b-instruct',
+ 'size': '33B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Falcon-180B is a 180B parameters causal decoder-only model '
+                'built by TII and trained on 3,500B tokens of RefinedWeb '
+                'enhanced with curated corpora.\n'
+                '\n'
+                '- Tasks: Text Generation\n'
+                '- Limitations: Carries the stereotypes and biases commonly '
+                'encountered online.\n'
+                '- Type: Decoder-only\n'
+                '- License: [Falcon-180B TII '
+                'License](https://huggingface.co/tiiuae/falcon-180B/blob/main/LICENSE.txt)\n'
+                '- Blog: [Spread Your Wings: Falcon 180B is '
+                'here](https://huggingface.co/blog/falcon-180b)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/tiiuae/falcon-180b)',
+ 'developer': 'tiiuae',
+ 'id': 'tiiuae/falcon-180b',
+ 'name': 'falcon-180b',
+ 'size': '180B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Falcon-40B is a 40B parameters causal decoder-only model '
+                'built by TII and trained on 1,000B tokens of RefinedWeb '
+                'enhanced with curated corpora.\n'
+                '\n'
+                '- Tasks: Summarization, Text Generation, Chatbot\n'
+                '- Limitations: Carries the stereotypes and biases commonly '
+                'encountered online.\n'
+                '- Type: Decoder-only\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/tiiuae/falcon-40b)',
+ 'developer': 'tiiuae',
+ 'id': 'tiiuae/falcon-40b',
+ 'name': 'falcon-40b',
+ 'size': '40B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'IBM instruction-tuned version of tiiuae/falcon-40b, tuned on '
+                'multi-lingual data.\n'
+                '\n'
+                '- Tasks: Summarization, Generation, Chatbot\n'
+                '- Type: Decoder-only\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- More information: [from '
+                'HuggingFace](https://huggingface.co/tiiuae/falcon-40b)',
+ 'developer': 'IBM',
+ 'id': 'ibm/falcon-40b-8lang-instruct',
+ 'name': 'falcon-40b-8lang-instruct',
+ 'size': '40B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'flan-t5-xl (3B) is a 3 billion parameter model based on the '
+                'Flan-T5 family. It is a pretrained T5: an encoder-decoder '
+                'model pre-trained on a mixture of supervised / unsupervised '
+                'tasks converted into a text-to-text format, and fine-tuned on '
+                'the Fine-tuned LAnguage Net '
+                '([FLAN](https://arxiv.org/pdf/2109.01652.pdf)) with '
+                'instructions for better zero-shot and few-shot performance. \n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Extraction\n'
+                '- Limitations: Fine-tuned on data which was not filtered for '
+                'safety and fairness.\n'
+                '- Languages: English, Spanish, Japanese, Persian, Hindi, '
+                '[view all 60...](https://huggingface.co/google/flan-t5-xl)\n'
+                '- Type: Encoder-decoder\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Repository: '
+                '[google-research/t5x](https://github.com/google-research/t5x)\n'
+                '- Paper: [Scaling Instruction-Finetuned Language '
+                'Models](https://arxiv.org/abs/2210.11416)\n'
+                '- More Information: [from '
+                'Huggingface](https://huggingface.co/google/flan-t5-xl)',
+ 'developer': 'google',
+ 'id': 'google/flan-t5-xl',
+ 'name': 'flan-t5-xl',
+ 'size': '3B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'flan-t5-xxl (11B) is an 11 billion parameter model based on '
+                'the Flan-T5 family. It is a pretrained T5: an encoder-decoder '
+                'model pre-trained on a mixture of supervised / unsupervised '
+                'tasks converted into a text-to-text format, and fine-tuned on '
+                'the Fine-tuned LAnguage Net '
+                '([FLAN](https://arxiv.org/pdf/2109.01652.pdf)) with '
+                'instructions for better zero-shot and few-shot performance.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Extraction\n'
+                '- Limitations: Fine-tuned on data which was not filtered for '
+                'safety and fairness.\n'
+                '- Type: Encoder-decoder\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Repository: '
+                '[google-research/t5x](https://github.com/google-research/t5x)\n'
+                '- Paper: [Scaling Instruction-Finetuned Language '
+                'Models](https://arxiv.org/abs/2210.11416)\n'
+                '- More Information: [from '
+                'Huggingface](https://huggingface.co/google/flan-t5-xxl)',
+ 'developer': 'google',
+ 'id': 'google/flan-t5-xxl',
+ 'name': 'flan-t5-xxl',
+ 'size': '11B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'flan-ul2 (20B) is an encoder decoder model based on the T5 '
+                'architecture and instruction-tuned using the Fine-tuned '
+                'LAnguage Net ([FLAN](https://arxiv.org/pdf/2109.01652.pdf)). '
+                'Compared to the original UL2 model, flan-ul2 (20B) is more '
+                'usable for few-shot in-context learning because it was '
+                'training with a three times larger receptive field. flan-ul2 '
+                '(20B) outperforms flan-t5 (11B) by an overall relative '
+                'improvement of +3.2%.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Extraction\n'
+                '- Type: Encoder-decoder\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Paper: [Unifying Language Learning '
+                'Paradigms](https://arxiv.org/abs/2205.05131v1)\n'
+                '- Blog: [A New Open Source Flan 20B with '
+                'UL2](https://www.yitay.net/blog/flan-ul2-20b)\n'
+                '- More Information: [from '
+                'Huggingface](https://huggingface.co/google/flan-ul2)',
+ 'developer': 'google',
+ 'id': 'google/flan-ul2',
+ 'name': 'flan-ul2',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'description': '',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-13b-base-v2',
+ 'name': 'granite-13b-base-v2',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': '*Version 2.1.0, released to watsonx.ai on 2/15/2024.*\n'
+                '\n'
+                'This model is a chat-focused variant of '
+                '`ibm/granite-13b-base-v2`, trained using over 2.5T tokens. '
+                'You can expect the following improvements with this latest '
+                'variant: (1) Ability to perform Retrieval Augmented '
+                'Generation (RAG) & multi-turn conversation use cases, (2) '
+                'Safety/bias reduction, (3) Improved quality of '
+                'content-grounded responses.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, Classification, '
+                'Generation, Extraction\n'
+                '- Type: Decoder-only\n'
+                '- [View watsonx.ai '
+                'documentation](https://dataplatform.cloud.ibm.com/wx/prompts?context=wx&project_id=ddf07996-776d-439c-ad54-98e776e4e988)\n'
+                '- [Prompt engineering '
+                'guide](https://ibm.biz/granite-chat-prompt-engineering)\n'
+                ' \n'
+                'Recommended parameters\n'
+                '- Chat mode:\n'
+                '    - `Sampling`\n'
+                '    - `Temperature` = .7\n'
+                '    - `Top P` = .85\n'
+                '    - `Top K` = 50\n'
+                '    - `Repetition Penalty` = 1.05\n'
+                '    - `Max New Tokens` = 2048\n'
+                '- Freeform:\n'
+                '    - `Greedy`\n'
+                '    - `Repetition Penalty` = 1.05\n'
+                '    - `Max New Tokens` = 512\n'
+                '\n'
+                'Feedback\n'
+                '   - This model relies on your feedback to make it better. '
+                'Help improve this model by sharing instances where it '
+                'performed particularly well or particularly poorly. You can '
+                'flag responses by clicking the flag icon to the right of a '
+                'generated response. A modal will pop up asking why you '
+                'flagged the response. You can check boxes to provide more '
+                'detail about the issue. There is also an open text field '
+                'where you can write freeform comments.\n'
+                '   - A team will review these flagged instances and will use '
+                'them to train the model.',
+ 'developer': 'IBM',
+ 'id': 'ibm/granite-13b-chat-v2',
+ 'name': 'granite-13b-chat-v2',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'granite-13b-instruct-v2 is a general-purpose decoder-only '
+                'model that should support most English NLP tasks. It is an '
+                'instruction-tuned variant initialized from the pre-trained '
+                'granoie-13b-v2 base model, which was on trained 2.5T Tokens '
+                'from the IBM Data Pile.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, Classification, '
+                'Generation, Extraction\n'
+                '- Type: Decoder-only\n'
+                '- Model Card: '
+                '[granite-13b-instruct-v2](https://github.ibm.com/ai-models/granite-gtm/blob/main/model-cards/granite-13b-instruct-v2.md)\n'
+                '- Prompt templating:\n'
+                '    - System prompt: no special prompt is required for the '
+                'model.\n'
+                '    - Model-specific format: No special format required for '
+                'this model, this model benefited from flan-templated data in '
+                'its alignment step and therefore should perform well with '
+                'flan-style prompt templates.',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-13b-instruct-v2',
+ 'name': 'granite-13b-instruct-v2',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is a version of '
+                '[ibm/granite-13b-chat](https://bam.res.ibm.com/docs/models#ibm-granite-13b-chat-v2) '
+                'that will be updated frequently based on community skill '
+                'contribution through the InstructLab project. \n'
+                '\n'
+                '- Resource: [Prompt engineering '
+                'guide](https://ibm.biz/granite-chat-prompt-engineering)\n'
+                '- System prompt:\n'
+                '    > You are an AI language model developed by IBM Research. '
+                'You are a cautious assistant. You carefully follow '
+                'instructions. You are helpful and harmless and you follow '
+                'ethical guidelines and promote positive behavior. You always '
+                "respond to greetings (for example, hi, hello, g'day, morning, "
+                "afternoon, evening, night, what's up, nice to meet you, sup, "
+                'etc) with "Hello! I am an AI language model, created by IBM. '
+                'How can I help you today?". Please do not say anything else '
+                'and do not start a conversation.\n'
+                '- Recommended parameters:\n'
+                "    - stop_token = '<|endoftext|>'\n"
+                '    - Repetition Penalty = 1.05\n'
+                '    - Min New Tokens = 1\n'
+                '    - Max New Tokens = 2048 (In Freeform mode, it is '
+                'recommended you adjust to 512.)',
+ 'developer': 'IBM',
+ 'id': 'ibm/granite-13b-lab-incubation',
+ 'name': 'granite-13b-lab-incubation',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This model was tuned using 10K tokens of data from 6 '
+                'languages: python, javascript, java, cpp, go, rust.\n'
+                '\n'
+                '- Tasks: Code\n'
+                '- Type: Decoder-only\n'
+                '- Prompt template:\n'
+                '\n'
+                '> f"Question:\\n{instruction}\\n\\nAnswer:\\n{model '
+                'response}"\n'
+                '\n'
+                '- For prompts with code context:\n'
+                '\n'
+                '> '
+                'f"Question:\\n{instruction}\\n{context}\\n\\nAnswer:\\n{model '
+                'response}"',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-20b-code-instruct-v1',
+ 'name': 'granite-20b-code-instruct-v1',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'GPTQ-quantized version of ibm/granite-20b-code-instruct-v1.\n'
+                '\n'
+                '- Type: Decoder-only',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-20b-code-instruct-v1-gptq',
+ 'name': 'granite-20b-code-instruct-v1-gptq',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'developer': 'ibm',
+ 'id': 'ibm/granite-20b-code-javaenterprise',
+ 'name': 'granite-20b-code-javaenterprise',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'developer': 'IBM',
+ 'id': 'ibm/granite-20b-multilang-lab-rc',
+ 'name': 'granite-20b-multilang-lab-rc',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'description': '`Granite.20b.5lang.instruct-rc` is an experimental '
+                'multilingual model that can support language tasks. On early '
+                'evaluations, this model has demonstrated improved English '
+                'performance over `granite.13b.v2` models as well as '
+                'reasonable multilingual capabilities. As this model is '
+                'experimental, the checkpoint may be updated frequently as new '
+                'versions are available, monitor `#bam-feedback` channel for '
+                'details.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Extraction\n'
+                '- Type: Decoder-only\n'
+                '- System prompts for RAG (please note that these are still '
+                'pending validation):\n'
+                '\n'
+                '    > Given the document and the current conversation between '
+                'a user and an agent, your task is as follows: Answer any user '
+                'query by using information from the document. The response '
+                'should be detailed and should be written only in Portuguese.\n'
+                '    > \n'
+                '    > DOCUMENT: {{CONTEXT}}\n'
+                '    > DIALOG: USER: {{PROMPT}}\n'
+                '\n'
+                '\n'
+                '    > \\### System:\n'
+                '    >You are an AI assistant that follows instruction '
+                'extremely well. Help as much as you can.\n'
+                '    >\\### User:\n'
+                '    >Given the document and the current conversation between '
+                'a user and an agent, your task is as follows: Answer any user '
+                'query by using information from the document. The response '
+                'should be detailed and should be written only in Portuguese.\n'
+                '    >\n'
+                '    >DOCUMENT: {{CONTEXT}}\n'
+                '    >\n'
+                '    >DIALOG: USER: {{PROMPT}}\n'
+                '    >\n'
+                '    >\\### Assistant:',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-20b-multilingual',
+ 'name': 'granite-20b-multilingual',
+ 'size': '20B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Granite.3b.code is a general-purpose code-specific '
+                'decoder-only model designed for lightweight code explanation '
+                'and translation tasks.  It is an early code-model prototype '
+                'for a larger 20B code model that is targeted for release this '
+                'fall through Watsonx Code Assistant.  Granite.3b.code '
+                'features a 2k context length and was trained on the [Github '
+                'Code '
+                'Clean](https://huggingface.co/datasets/codeparrot/github-code-clean) '
+                'dataset.  Granite.3b.code is intended to be non-language '
+                'specific and should support tasks across key coding languages '
+                'like Java, C++, Python, Markdown, and more.\n'
+                '\n'
+                '- Tasks: Code\n'
+                '- Type: Decoder-only\n'
+                '\n'
+                '**Note: This model is an early prototype and is not intended '
+                'for product release.  It is intended for internal '
+                'experimentation only.**',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-3b-code-plus-v1',
+ 'name': 'granite-3b-code-plus-v1',
+ 'size': '3B'}
+
+=============================== Get model detail ===============================
+
+{'description': "Granite.8b.japanese is IBM Research's first multilingual "
+                'model, trained to support Japanese tasks. This model was '
+                'trained on over 1.1T tokens of English data and 0.5T tokens '
+                'of Japanese data and was fine-tuned on opensource Japanese '
+                'and English instruction tuning datasets. On Jan 12, this '
+                'model was updated to improve its performance on zero-shot '
+                'prompting and translation tasks.\n'
+                '\n'
+                '- Limitations: This model should be used for Japanese tasks '
+                'only. Predominantly English tasks should still be run on the '
+                'English granite series (e.g. granite.13b).\n'
+                '- Type: Decoder-only\n'
+                '- System prompt: \n'
+                '    > You are an AI language model developed by IBM Research. '
+                'You are a cautious assistant. You carefully follow '
+                'instructions. You are helpful and harmless and you follow '
+                'ethical guidelines and promote positive behavior. You always '
+                "respond to greetings (for example, hi, hello, g'day, morning, "
+                "afternoon, evening, night, what's up, nice to meet you, sup, "
+                'etc) with "Hello! I am an AI language model, created by IBM. '
+                'How can I help you today?". Please do not say anything else '
+                'and do not start a conversation.\n'
+                '\n'
+                '- Recommended parameters:\n'
+                "    - stop_token = '<|endoftext|>'\n"
+                '    - Repetition Penalty = 1.05\n'
+                '    - Min New Tokens = 1\n'
+                '    - Max New Tokens = 2048 (In Freeform mode, it is '
+                'recommended you adjust to 512.)',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-8b-japanese',
+ 'name': 'granite-8b-japanese',
+ 'size': '8B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is the InstructLab-aligned version of the '
+                'granite-8b-japanese model. Prompt engineering guide will be '
+                'linked here soon.',
+ 'developer': 'ibm',
+ 'id': 'ibm/granite-8b-japanese-lab-rc',
+ 'name': 'granite-8b-japanese-lab-rc',
+ 'size': '8B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Llama-2-13b is a pre-trained base model from the Llama2 model '
+                'family. Llama 2 is an auto-regressive language model that '
+                'uses an optimized transformer architecture. \n'
+                '\n'
+                '- Tasks: Pretrained models can be adapted for a variety of '
+                'natural language generation tasks.\n'
+                '- Type: Decoder-only\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- Model Card: '
+                '[facebookresearch/llama](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md)\n'
+                '- Paper: [Llama 2: Open Foundation and Fine-Tuned Chat '
+                'Models](https://arxiv.org/abs/2307.09288)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/meta-llama/Llama-2-13b-hf)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-2-13b',
+ 'name': 'llama-2-13b',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Llama-2-13b-chat is a fine-tuned version of llama-2-13b. '
+                'Llama 2 is an auto-regressive language model that uses an '
+                'optimized transformer architecture. The tuned versions use '
+                'supervised fine-tuning (SFT) and reinforcement learning with '
+                'human feedback (RLHF) to align to human preferences for '
+                'helpfulness and safety. Llama-2-Chat models outperform '
+                'open-source chat models on most benchmarks we tested, and in '
+                'our human evaluations for helpfulness and safety, are on par '
+                'with some popular closed-source models like ChatGPT and '
+                'PaLM.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Code generation and conversion, Extraction\n'
+                '- Type: Decoder-only\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- Model Card: '
+                '[facebookresearch/llama](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md)\n'
+                '- Paper: [Llama 2: Open Foundation and Fine-Tuned Chat '
+                'Models](https://arxiv.org/abs/2307.09288)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-2-13b-chat',
+ 'name': 'llama-2-13b-chat',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Llama-2-70b is a pre-trained base model from the Llama2 model '
+                'family. Llama 2 is an auto-regressive language model that '
+                'uses an optimized transformer architecture.\n'
+                '\n'
+                '- Tasks: Pretrained models can be adapted for a variety of '
+                'natural language generation tasks.\n'
+                '- Type: Decoder-only\n'
+                '- Paper: [Llama 2: Open Foundation and Fine-Tuned Chat '
+                'Models](https://arxiv.org/abs/2307.09288)\n'
+                '- Model Card: '
+                '[facebookresearch/llama](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md)\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- More Information: [from Meta](https://ai.meta.com/llama/), '
+                '[from '
+                'HuggingFace](https://huggingface.co/meta-llama/Llama-2-70b-hf)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-2-70b',
+ 'name': 'llama-2-70b',
+ 'size': '70B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Llama-2-70b-chat is a fine-tuned version of llama-2-70b. '
+                'Llama 2 is an auto-regressive language model that uses an '
+                'optimized transformer architecture. The tuned versions use '
+                'supervised fine-tuning (SFT) and reinforcement learning with '
+                'human feedback (RLHF) to align to human preferences for '
+                'helpfulness and safety. Llama-2-Chat models outperform '
+                'open-source chat models on most benchmarks we tested, and in '
+                'our human evaluations for helpfulness and safety, are on par '
+                'with some popular closed-source models like ChatGPT and '
+                'PaLM.\n'
+                '\n'
+                '- Tasks: Question answering, Summarization, '
+                'Retrieval-Augmented Generation, Classification, Generation, '
+                'Code generation and conversion, Extraction\n'
+                '- Type: Decoder-only\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- Model Card: '
+                '[facebookresearch/llama](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md)\n'
+                '- Paper: [Llama 2: Open Foundation and Fine-Tuned Chat '
+                'Models](https://arxiv.org/abs/2307.09288)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-2-70b-chat',
+ 'name': 'llama-2-70b-chat',
+ 'size': '70B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Quantized version of llama-2-70b-chat built by IBM Research.\n'
+                '\n'
+                'This model is made with AutoGPTQ, which mainly leverages the '
+                'quantization technique to "compress" the model weights from '
+                'FP16 to 4-bit INT and performs "decompression" on-the-fly '
+                'before computation (in FP16). As a result, a 70b model will '
+                'only require 35GB GPU memory, and the data transferring '
+                'between GPU memory and GPU compute engine, compared to the '
+                'original FP16 model, is greatly reduced. The major '
+                'quantization parameters used in the process are listed '
+                'below.\n'
+                '\n'
+                '- Bits: 4\n'
+                '- Group size: 128\n'
+                '- Act order: Yes\n'
+                '- Damp %: .1\n'
+                '- Dataset used: BluePile enwiki\n'
+                '- Description: 128 records randomly sampled from a dataset of '
+                '5000 records downloaded from blue wiki were used in the '
+                'quantization fine-tuning process.',
+ 'developer': 'Meta',
+ 'id': 'ibm-meta/llama-2-70b-chat-q',
+ 'name': 'llama-2-70b-chat-q',
+ 'size': '70B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Llama-2-7b-chat is a fine-tuned version of llama-2-13b. Llama '
+                '2 is an auto-regressive language model that uses an optimized '
+                'transformer architecture. The tuned versions use supervised '
+                'fine-tuning (SFT) and reinforcement learning with human '
+                'feedback (RLHF) to align to human preferences for helpfulness '
+                'and safety. Llama-2-Chat models outperform open-source chat '
+                'models on most benchmarks we tested, and in our human '
+                'evaluations for helpfulness and safety, are on par with some '
+                'popular closed-source models like ChatGPT and PaLM.\n'
+                '\n'
+                '- Tasks: Chat\n'
+                '- Type: Decoder-only\n'
+                '- License: [Llama 2 Community License '
+                'Agreement](https://github.com/facebookresearch/llama/blob/main/LICENSE)\n'
+                '- Model Card: '
+                '[facebookresearch/llama](https://github.com/facebookresearch/llama/blob/main/MODEL_CARD.md)\n'
+                '- Paper: [Llama 2: Open Foundation and Fine-Tuned Chat '
+                'Models](https://arxiv.org/abs/2307.09288)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-2-7b-chat',
+ 'name': 'llama-2-7b-chat',
+ 'size': '7B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Meta Llama 3 is a family of auto-regressive language models, '
+                'pretrained on over 15 trillion tokens of data from publicly '
+                'available sources. These models use an optimized transformer '
+                'architecture. Helpfulness and safety were prioritized in '
+                'developing these models. \n'
+                '\n'
+                'This is the 70B instruction tuned variant, optimized for '
+                'dialoge use cases. This model has been found to outperform '
+                'many of the available open source chat models.\n'
+                '\n'
+                '- License: [Llama 3](https://llama.meta.com/llama3/license/)\n'
+                '- [Acceptable Use '
+                'Policy](https://llama.meta.com/llama3/use-policy/)\n'
+                '- [Model '
+                'Card](https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md)\n'
+                '- [Responsible Use '
+                'Guide](http://llama.meta.com/responsible-use-guide)\n'
+                '- Safegaurds: [Meta Llama Guard '
+                '2](https://llama.meta.com/purple-llama/) & [Code '
+                'Shield](https://llama.meta.com/purple-llama/)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-3-70b-instruct',
+ 'name': 'llama-3-70b-instruct',
+ 'size': '70B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Meta Llama 3 is a family of auto-regressive language models, '
+                'pretrained on over 15 trillion tokens of data from publicly '
+                'available sources. These models use an optimized transformer '
+                'architecture. Helpfulness and safety were prioritized in '
+                'developing these models. \n'
+                '\n'
+                'This is the 8B base model.\n'
+                '\n'
+                '- License: [Llama 3](https://llama.meta.com/llama3/license/)\n'
+                '- [Acceptable Use '
+                'Policy](https://llama.meta.com/llama3/use-policy/)\n'
+                '- [Model '
+                'Card](https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md)\n'
+                '- [Responsible Use '
+                'Guide](http://llama.meta.com/responsible-use-guide)\n'
+                '- Safegaurds: [Meta Llama Guard '
+                '2](https://llama.meta.com/purple-llama/) & [Code '
+                'Shield](https://llama.meta.com/purple-llama/)\n'
+                '- More information: [from '
+                'Huggingface](https://huggingface.co/meta-llama/Meta-Llama-3-8B)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-3-8b',
+ 'name': 'llama-3-8b',
+ 'size': '8B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Meta Llama 3 is a family of auto-regressive language models, '
+                'pretrained on over 15 trillion tokens of data from publicly '
+                'available sources. These models use an optimized transformer '
+                'architecture. Helpfulness and safety were prioritized in '
+                'developing these models. \n'
+                '\n'
+                'This is the 8B instruction tuned variant, optimized for '
+                'dialoge use cases. This model has been found to outperform '
+                'many of the available open source chat models.\n'
+                '\n'
+                '- License: [Llama 3](https://llama.meta.com/llama3/license/)\n'
+                '- [Acceptable Use '
+                'Policy](https://llama.meta.com/llama3/use-policy/)\n'
+                '- [Model '
+                'Card](https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md)\n'
+                '- [Responsible Use '
+                'Guide](http://llama.meta.com/responsible-use-guide)\n'
+                '- Safegaurds: [Meta Llama Guard '
+                '2](https://llama.meta.com/purple-llama/) & [Code '
+                'Shield](https://llama.meta.com/purple-llama/)\n'
+                '- More information: [from '
+                'Huggingface](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct)',
+ 'developer': 'Meta',
+ 'id': 'meta-llama/llama-3-8b-instruct',
+ 'name': 'llama-3-8b-instruct',
+ 'size': '8B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This model is trained using the Large-scale Alignment for '
+                'chatBots (LAB) methodology with `Mistral-7B-v01` as its base '
+                'model and `Mixtral-8x7B-Instruct-v01` as the teacher model. '
+                'LAB is a synthetic data-based alignment tuning method that '
+                'consists of taxonomy-driven data curation, large-scale '
+                'synthetic data generation, and two-phased training with '
+                'replay buffers to gradually integrate new knowledge and '
+                'skills.\n'
+                '\n'
+                '- Tasks: Generation\n'
+                '- Paper: [LAB: Large-Scale Alignment for '
+                'ChatBots](https://arxiv.org/abs/2403.01081)\n'
+                '- License: [Apache '
+                '2.0](https://huggingface.co/models?license=license%3Aapache-2.0)\n'
+                '- Risks, Bias and Limitations: \n'
+                '    - (1) Not aligned with human preferences and may produce '
+                'problematic outputs.\n'
+                '    - (2) Trained on synthetic data so use safety measures '
+                'and caution in decision-making reliance. \n'
+                '    - (3) Always use safeguards, ongoing research is needed '
+                'to uncover model vulnerabilities.\n'
+                '- More info: [from '
+                'HuggingFace](https://huggingface.co/ibm/merlinite-7b)\n'
+                '- System prompt: \n'
+                '\n'
+                '    > You are an AI language model developed by IBM Research. '
+                'You are a cautious assistant. You carefully follow '
+                'instructions. You are helpful and harmless and you follow '
+                'ethical guidelines and promote positive behavior.\n'
+                '\n'
+                '- Recommended parameters:\n'
+                "    - stop_token = '<|endoftext|>'\n"
+                '    - Repetition Penalty = 1.05\n'
+                '    - Min New Tokens = 1\n'
+                '    - Max New Tokens = 2048 (In Freeform mode, it is '
+                'recommended you adjust to 512.)\n'
+                '\n'
+                'Note: For the model to respond appropriately to REST API '
+                'requests, the "stop_sequences" parameter must contain at '
+                'least `<|endoftext|>`. A sample is shown below. For Python '
+                'SDK, users should adjust the request parameters analogously.\n'
+                '\n'
+                '```\n'
+                '  "parameters": {\n'
+                '    ...\n'
+                '    "stop_sequences": [\n'
+                '      "<|endoftext|>"\n'
+                '    ],\n'
+                '    "include_stop_sequence": false,\n'
+                '    ...\n'
+                '  }\n'
+                '```',
+ 'developer': 'Mistral AI',
+ 'id': 'ibm-mistralai/merlinite-7b',
+ 'name': 'merlinite-7b',
+ 'size': '7B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'Instruct fine-tuned version of the Mistral-7B-v0.1 using a '
+                'variety of publicly available conversation datasets.\n'
+                '\n'
+                '- Tasks: Reasoning, Code\n'
+                '- Limitations: This model does not have any moderation '
+                'mechanisms.\n'
+                '- Type: Decoder-only\n'
+                '- License: [Apache '
+                '2.0])(https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Paper: [Mistral 7B](https://arxiv.org/abs/2310.06825)\n'
+                '- Blog: [La '
+                'plateforme](https://mistral.ai/news/la-plateforme/)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2)',
+ 'developer': 'Mistral AI',
+ 'id': 'mistralai/mistral-7b-instruct-v0-2',
+ 'name': 'mistral-7b-instruct-v0-2',
+ 'size': '7B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'The Mixtral-8x7B Large Language Model (LLM) is a pretrained '
+                'generative Sparse Mixture of Experts. \n'
+                '\n'
+                '- Tasks: Generation\n'
+                '- Type: Decoder-only\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Blog: [Mixtral of '
+                'experts](https://mistral.ai/news/mixtral-of-experts/)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)',
+ 'developer': 'Mistral AI',
+ 'id': 'mistralai/mixtral-8x7b-instruct-v01',
+ 'name': 'mixtral-8x7b-instruct-v01',
+ 'size': '8x7b'}
+
+=============================== Get model detail ===============================
+
+{'description': 'The mixtral-8x7b-instruct-v01-q foundation model is a '
+                'quantized version of the Mixtral 8x7B Instruct foundation '
+                'model from Mistral AI.The underlying Mixtral-8x7B Large '
+                'Language Model (LLM) is a pretrained generative Sparse '
+                'Mixture of Experts. \n'
+                '\n'
+                '- Tasks: Generation\n'
+                '- Languages: English, Spanish, French, German, Italian\n'
+                '- Type: Decoder-only\n'
+                '- License: [Apache '
+                '2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)\n'
+                '- Blog: [Mixtral of '
+                'experts](https://mistral.ai/news/mixtral-of-experts/)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)',
+ 'developer': 'ibm-mistralai',
+ 'id': 'ibm-mistralai/mixtral-8x7b-instruct-v01-q',
+ 'name': 'mixtral-8x7b-instruct-v01-q',
+ 'size': '8x7B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is a sentence-transformers model that has 24 layers and '
+                'the embedding size is 1024.\n'
+                '\n'
+                '- Tasks: Information retrieval, clustering, sentence '
+                'similarity tasks  \n'
+                '- Language: 94 languages\n'
+                '- Max sequence length: 512 \n'
+                '- Number of dimensions: 1024\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/intfloat/multilingual-e5-large)',
+ 'developer': 'sentence-transformers',
+ 'id': 'intfloat/multilingual-e5-large',
+ 'name': 'multilingual-e5-large',
+ 'size': '560M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This is a 7B parameter model, based on Llama2.\n'
+                '\n'
+                '- Type: Decoder-only\n'
+                '- Blog: [OpenHathi Series: An Approach To Build Bilingual '
+                'LLMs '
+                'Frugally](https://www.sarvam.ai/blog/announcing-openhathi-series)',
+ 'developer': 'sarvamai',
+ 'id': 'sarvamai/openhathi-7b-hi-v0-1-base',
+ 'name': 'openhathi-7b-hi-v0-1-base',
+ 'size': '7B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'kaist-ai/prometheus-13b-v1 is built upon the llama-2-chat '
+                'architecture and finely-tuned on a comprehensive dataset '
+                'comprising of 100K feedback instances. \n'
+                '\n'
+                '- Tasks: Evaluating long-form responses. It allows customized '
+                'evaluations for criteria like child readability and cultural '
+                'sensitivity.\n'
+                '- Type: Decoder-only\n'
+                '- License: '
+                '[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0.txt) \n'
+                '- Paper: [Prometheus: Inducing Fine-grained Evaluation '
+                'Capability in Language '
+                'Models](https://arxiv.org/abs/2310.08491)\n'
+                '- More Information: [from '
+                'HuggingFace](https://huggingface.co/kaist-ai/prometheus-13b-v1.0)\n'
+                '- Proper formatting: \n'
+                '\n'
+                '    - Prometheus requires 4 components in the input: An '
+                'instruction, a response to evaluate, a score rubric, and a '
+                'reference answer.\n'
+                ' \n'
+                '    > ###Task Description:\n'
+                '    > \n'
+                '    > An instruction (might include an Input inside it), a '
+                'response to evaluate, a reference answer that gets a score of '
+                '5, and a score rubric representing a evaluation criteria are '
+                'given.\n'
+                '    > \n'
+                '    > 1. Write a detailed feedback that assess the quality of '
+                'the response strictly based on the given score rubric, not '
+                'evaluating in general.\n'
+                '    > \n'
+                '    > 2. After writing a feedback, write a score that is an '
+                'integer between 1 and 5. You should refer to the score '
+                'rubric.\n'
+                '    > \n'
+                '    > 3. The output format should look as follows: '
+                '\\"Feedback: (write a feedback for criteria) [RESULT] (an '
+                'integer number between 1 and 5)\\"\n'
+                '    > \n'
+                '    > 4. Please do not generate any other opening, closing, '
+                'and explanations.\n'
+                '    > \n'
+                '    > ###The instruction to evaluate: {instruction}\n'
+                '    > \n'
+                '    > ###Response to evaluate: {response}\n'
+                '    > \n'
+                '    > ###Reference Answer (Score 5): {reference_answer}\n'
+                '    > \n'
+                '    > ###Score Rubrics: [{criteria_description}]\n'
+                '    > \n'
+                '    > Score 1: {score1_description}\n'
+                '    > \n'
+                '    > Sore 2: {score2_description}\n'
+                '    > \n'
+                '    > Score 3: {score3_description}\n'
+                '    > \n'
+                '    > Score 4: {score4_description}\n'
+                '    > \n'
+                '    > Score 5: {score5_description}\n'
+                '    > \n'
+                '    > ###Feedback:\n'
+                '\n'
+                '**Note: This model is approved for experimental use only and '
+                'is mainly intended to test LLM as a judge evaluation. You '
+                'should not use this model to improve the performance of other '
+                'models as this model is a fine-tuned implementation of '
+                'llama-2 using GPT-4 data.**',
+ 'developer': 'KAIST AI',
+ 'id': 'kaist-ai/prometheus-13b-v1',
+ 'name': 'prometheus-13b-v1',
+ 'size': '13B'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This model is comparable to the E5 and BGE models. It follows '
+                'the standard "sentence transformers" approach, relying on '
+                'bi-encoders. It generates embeddings for various inputs such '
+                'as queries, passages, or documents. The training objective is '
+                'to maximize cosine similarity between two text pieces: text A '
+                '(query text) and text B (passage text). This process yields '
+                'sentence embeddings q and p, allowing for comparison through '
+                'cosine similarity.\n'
+                ' \n'
+                'The underlying model is `slate.125m.english` has ~125 million '
+                'parameters and an embedding dimension of 768. ',
+ 'developer': 'ibm',
+ 'id': 'ibm/slate.125m.english.rtrvr',
+ 'name': 'slate.125m.english.rtrvr',
+ 'size': '125M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This model is an updated version of the existing 30m variant '
+                'distilled from the 125m model. Performance is comparable '
+                'size-wise to `E5-small`, `BGE-small` and `all-MiniLM-L6-v2`.\n'
+                '\n'
+                '- Number of dimensions: 384',
+ 'developer': 'ibm',
+ 'id': 'ibm/slate.30m.english.rtrvr',
+ 'name': 'slate.30m.english.rtrvr',
+ 'size': '30M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'This model is an updated version of the existing 30m variant '
+                'distilled from the 125m model. Performance is comparable '
+                'size-wise to `E5-small`, `BGE-small` and `all-MiniLM-L6-v2`.\n'
+                '\n'
+                '- Number of dimensions: 384',
+ 'developer': 'ibm',
+ 'id': 'ibm/slate.30m.english.rtrvr.02.28.2024',
+ 'name': 'slate.30m.english.rtrvr.02.28.2024',
+ 'size': '30M'}
+
+=============================== Get model detail ===============================
+
+{'description': 'input time points required: `512`\n'
+                '\n'
+                'maximum predicted time points: `96`\n'
+                '\n'
+                'TinyTimeMixer (TTM) is a tiny light-weight pretrained model '
+                'for time-series forecasting. With less than 1 million '
+                'parameters, TTM outperforms several popular state-of-the-art '
+                'models with billions of parameters in zero-shot and few-shot '
+                'forecasting. TTM models can easily perform inference on '
+                'laptops or be fine-tuned on a single GPU in a short amount of '
+                'time. The TTM model is based on the TSMixer architecture '
+                'adding several enhancement such as adaptive patching, '
+                'resolution prefix tuning, and a multi-level modeling strategy '
+                'to effectively model channel correlations and infuse '
+                'exogenous signals during fine-tuning.\n'
+                'This particular TTM model was trained using a context length '
+                'of 512 time points (i.e., 512 historical time points), and '
+                'can \n'
+                'forecast up to 96 future time points. It was trained on a '
+                'collection of datasets, and downsampled versions of those '
+                'datasets, from the Monash Time Series Forecasting repository. '
+                'In total, the pretraining consists of 244 million time '
+                'points. The datasets used include:\n'
+                '- [Australian Electricity '
+                'Demand](https://zenodo.org/records/4659727)\n'
+                '- [Australian Weather](https://zenodo.org/records/4654822)\n'
+                '- [Bitcoin dataset](https://zenodo.org/records/5122101)\n'
+                '- [KDD Cup 2018 dataset](https://zenodo.org/records/4656756)\n'
+                '- [London Smart Meters](https://zenodo.org/records/4656091)\n'
+                '- [Saugeen River Flow](https://zenodo.org/records/4656058)\n'
+                '- [Solar Power](https://zenodo.org/records/4656027)\n'
+                '- [Sunspots](https://zenodo.org/records/4654722)\n'
+                '- [Solar](https://zenodo.org/records/4656144)\n'
+                '- [US Births](https://zenodo.org/records/4656049)\n'
+                '- [Wind Farms Production '
+                'data](https://zenodo.org/records/4654858)\n'
+                '- [Wind Power](https://zenodo.org/records/4656032)\n'
+                '\n'
+                '**Citation**: Ekambaram, V., Jati, A., Nguyen, N. H., Dayama, '
+                'P., Reddy, C., Gifford, W. M., & Kalagnanam, J. (2024). '
+                '[TTMs: Fast Multi-level Tiny Time Mixers for Improved '
+                'Zero-shot and Few-shot Forecasting of Multivariate Time '
+                'Series. arXiv preprint '
+                'arXiv:2401.03955.](https://arxiv.org/abs/2401.03955)',
+ 'developer': 'IBM',
+ 'id': 'ibm/tinytimemixer-monash-fl_96',
+ 'name': 'tinytimemixer-monash-fl_96',
+ 'size': '1M'}

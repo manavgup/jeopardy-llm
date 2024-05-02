@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: ibm-generative-ai
+Version: 2.3.0
+Summary: IBM Generative AI is a Python library built on IBM's large language model REST interface.
+Author: Tomas Dvorak
+Author-email: tomas.dvorak@ibm.com
+Maintainer: Tomas Dvorak
+Maintainer-email: tomas.dvorak@ibm.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Provides-Extra: huggingface
+Provides-Extra: langchain
+Provides-Extra: llama-index
+Provides-Extra: localserver
+Requires-Dist: aiolimiter (>=1.1.0,<2.0.0)
+Requires-Dist: datasets (>=2.13.0,<3.0.0) ; extra == "huggingface"
+Requires-Dist: deprecated (>=1.2.14,<2.0.0)
+Requires-Dist: fastapi (>=0.100.0,<0.101.0) ; extra == "localserver"
+Requires-Dist: httpx (>=0.26.0,<0.27.0)
+Requires-Dist: httpx-sse (>=0.3.0,<0.4.0)
+Requires-Dist: langchain-core (>=0.1.0,<0.2.0) ; extra == "langchain"
+Requires-Dist: llama-index-core (>=0.10.0,<0.11.0) ; extra == "llama-index"
+Requires-Dist: pydantic (>=2.0.0,<3.0.0)
+Requires-Dist: pyyaml (>=6.0.0,<7.0.0) ; extra == "langchain"
+Requires-Dist: transformers[agents] (>=4.33.3,<5.0.0) ; extra == "huggingface"
+Requires-Dist: uvicorn (>=0.22.0,<0.23.0) ; extra == "localserver"
+Description-Content-Type: text/markdown
+
+# IBM Generative AI Python SDK (Tech Preview)
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/IBM/ibm-generative-ai/blob/main/LICENSE)
+![PyPI](https://img.shields.io/pypi/v/ibm-generative-ai)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/ibm-generative-ai)
+[![Coverage Status](https://coveralls.io/repos/github/IBM/ibm-generative-ai/badge.svg?branch=main)](https://coveralls.io/github/IBM/ibm-generative-ai?branch=main)
+[![Build & Unit/Integration Tests](https://github.com/IBM/ibm-generative-ai/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/IBM/ibm-generative-ai/actions/workflows/main.yml)
+[![E2E Tests](https://github.com/IBM/ibm-generative-ai/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/IBM/ibm-generative-ai/actions/workflows/e2e-test.yml)
+
+
+This is not the [watsonx.ai](https://www.ibm.com/products/watsonx-ai) Python SDK. This is the Python SDK for the Tech Preview program for IBM Foundation Models Studio. This SDK brings IBM Generative AI (GenAI) into Python programs and provides useful operations and types.
+
+*You can start a trial version or request a demo via https://www.ibm.com/products/watsonx-ai.*
+
+*Looking for the [watsonx.ai](https://www.ibm.com/products/watsonx-ai) Python SDK? Check out [ibm-watsonx-ai](https://ibm.github.io/watsonx-ai-python-sdk/foundation_models.html).*
+
+*Looking for a NodeJS SDK version? Check out [IBM Generative AI NodeJS SDK](https://github.com/IBM/ibm-generative-ai-node-sdk)*
+
+*Looking for a CLI? Check out [IBM Generative AI CLI](https://github.com/IBM/ibm-generative-ai-cli).*
+
+> [!IMPORTANT]
+> The SDK was recently rewritten and released under V2 (2024). See the [V2 migration guide](https://ibm.github.io/ibm-generative-ai/main/v2_migration_guide.html).
+
+## Installation
+
+```
+pip install --upgrade ibm-generative-ai
+```
+
+
+### [📚 Documentation](https://ibm.github.io/ibm-generative-ai/)
+
+### [📚 Examples](https://ibm.github.io/ibm-generative-ai/latest/rst_source/examples.html)
+
+### [📚 V2 Migration Guide](https://ibm.github.io/ibm-generative-ai/latest/v2_migration_guide.html)
+
+
+## Important Information for Contributors
+- Do you want to contribute to the project? IBM Generative AI is an open-source project that welcomes the community to contribute with documentation, tests, bug corrections, and new functionality in the form of [extensions](EXTENSIONS.md). Please read our [code of conduct](CODE_OF_CONDUCT.md) to learn the expected behavior from participants that contribute to the project, and our [contribution guide](./CONTRIBUTING.md) to learn the gitflow and steps to submit pull requests.
+
+<!-- vscode-markdown-toc-config
+	numbering=false
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+

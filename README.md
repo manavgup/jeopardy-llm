@@ -32,13 +32,13 @@ TODO: Remove jeopardy dataset and just load from HF.
 To generate the jeopardy answers, use:
 
 ```
-python3 gen_jeopardy.py --models_file data/models.jsonl --questions_file data/questions.jsonl --db_file output/jeopardy.db
+python gen_jeopardy.py --models_file data/models.jsonl --judge_models_file data/judges.jsonl --questions_file data/questions.jsonl --db_file output/jeopardy.db
 ```
 ### Command Line Arguments
 - --models_file: Path to the JSONL file containing LLM configurations.
 - --questions_file: Path to the JSONL file containing the Jeopardy questions.
 - --db_file: Path to the SQLite database file.
-- --judge-model-id: (Optional) ID of the judge model to use for generating judgments.
+- --judge_models_file: Path to the JSONL file containing Judge LLM configurations.
 - --test-run-id: (Optional) ID of the test run to use for generating judgments.
 
 ## Generate Judgements

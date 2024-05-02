@@ -6,7 +6,7 @@ import random
 from collections import defaultdict
 
 # Initialize database
-database_file = 'outs/jeopardy.db'
+database_file = 'output/jeopardy.db'
 db = JeopardyDB(db_file=database_file)
 
 def get_llm_options():
@@ -14,8 +14,8 @@ def get_llm_options():
     return [(llm.name, llm.id) for llm in llms]
 
 def get_judge_options():
-    judges = db.get_llm_judge_models()
-    return [(judge.judge_model) for judge in judges]
+    judges = db.get_all_judge_llms()
+    return [(judge.name) for judge in judges]
 
 def display_llm_responses(selected_llm_id):
     # Clear the existing content

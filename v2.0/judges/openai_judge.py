@@ -1,5 +1,8 @@
 from typing import Tuple
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
+
 
 from judges.judge import Judge
 import os

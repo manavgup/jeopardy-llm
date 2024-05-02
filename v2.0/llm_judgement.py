@@ -45,9 +45,10 @@ class BaseJudge:
 
         # convert response to float if it's a number
         try:
-            match = re.search(r"(?:\d+(?:\.\d*)?|\.\d+)", response)
-            if match:
-                return float(match.group())
+            if (type(response) != type(0.1)):
+                match = re.search(r"(?:\d+(?:\.\d*)?|\.\d+)", response)
+                if match:
+                        return float(match.group())
         except ValueError:
             return 0.0
         return 0.0

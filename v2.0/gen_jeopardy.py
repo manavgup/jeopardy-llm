@@ -102,13 +102,15 @@ def chunked_iterable(iterable, size):
     for i in range(0, len(iterable), size):
         yield iterable[i:i + size]
 
-def main(models_file: str, questions_file: str, db_file: str):
+def main(models_file: str, questions_file: str, db_file: str, judge_models_file: str):
     """
     Main execution function.
     """
     # Load LLM information from the models file and insert them into the database
     with JeopardyDB(db_file) as db:
+        db.clear_data()
         llms = db.insert_and_return_llms_from_file(models_file)
+        judges = db.insert_and_return_judge_llms_from_file(judge_models_file)
         # Load the questions from the file and insert them into the database
         db.insert_questions_file(questions_file)
         test_run_id = db.insert_test_run(PROMPTS["play"]["user"], PROMPTS["play"]["system"])
@@ -120,35 +122,42 @@ def main(models_file: str, questions_file: str, db_file: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate answers for Jeopardy questions using LLMs.")
     parser.add_argument(
-        "--models_file", type=str, 
+        "--models_file", 
+        type=str, 
         default="data/models.jsonl", 
         help="Path to the models configuration file.")
     parser.add_argument(
-        "--questions_file", type=str,
-        default="data/questions-test.jsonl",
+        "--questions_file", 
+        type=str,
+        default="data/questions.jsonl",
         help="Path to the questions file."
     )
     parser.add_argument(
-        "--judge-model-id", 
-        type = int,
+        "--judge_models_file", 
+        type = str,
         default = None,
-        help = "The ID of the judge model to use for generating judgements.")
+        help = "Path to the judge models configuration file")
     parser.add_argument(
-        "--db_file", type=str,
+        "--db_file", 
+        type=str,
         default="output/jeopardy.db",
         help="Path to the database file."
     )
     parser.add_argument(
-        "--test-run-id", type=int,
-        default=None,
+        "--test-run-id", 
+        type=int,
+        default=1,
         help="The ID of the test run to use for generating judgements."
     )
     args = parser.parse_args()
     models_file = f"{args.models_file}"
     questions_file=f"{args.questions_file}"
+    judge_models_file = f"{args.judge_models_file}"
     db_file=f"{args.db_file}"
-    #models_file = "data/models.jsonl"  # Path to the models configuration file
-    #questions_file = "data/questions-test.jsonl"  # Path to the questions file
-    #db_file = "outs/jeopardy.db"
-    main(models_file, questions_file, db_file)
+    models_file_path = "data/models.jsonl"  # Path to the models configuration file
+    judge_models_file_path = "data/judges.jsonl"
+    questions_file_path = "data/questions.jsonl"  # Path to the questions file
+    db_file_path = "output/jeopardy.db"
+    
+    main(models_file=models_file_path, questions_file=questions_file_path, db_file=db_file_path, judge_models_file=judge_models_file_path)
 
